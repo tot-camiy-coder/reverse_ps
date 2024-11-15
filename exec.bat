@@ -1,3 +1,6 @@
+:: Installer Info_Grabber.py
+:: @govno_coder_ot_kota
+:: MIT license
 @echo off
 setlocal enabledelayedexpansion
 chcp 65001
