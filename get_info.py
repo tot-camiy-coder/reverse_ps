@@ -28,15 +28,15 @@ def GetIP():
 def GetSystem():
     uname = platform.uname()
     lhost, google, public = GetIP()
-    out = f'====| Система |====\n'
-    out += f'🎃 Система: {uname.system} {uname.release}\n'
-    out += f'⚙ Архитектура: {cpuinfo.get_cpu_info()['arch']}\n'
-    out += f'📦 Процессор: {cpuinfo.get_cpu_info()['brand_raw']}\n'
-    out += f'====| Интернет |====\n'
-    out += f'💻 Локальный: {google}, {lhost}\n'
-    out += f'🌎 Внешний: {public}\n'
-    out += f'====| Питон |====\n'
-    out += f'🐍 Версия Python: {platform.python_version()}\n'
+    out = f"====| Система |====\n"
+    out += f"🎃 Система: {uname.system} {uname.release}\n"
+    out += f"⚙ Архитектура: {cpuinfo.get_cpu_info()['arch']}\n"
+    out += f"📦 Процессор: {cpuinfo.get_cpu_info()['brand_raw']}\n"
+    out += f"====| Интернет |====\n"
+    out += f"💻 Локальный: {google}, {lhost}\n"
+    out += f"🌎 Внешний: {public}\n"
+    out += f"====| Питон |====\n"
+    out += f"🐍 Версия Python: {platform.python_version()}\n"
     return out
 
 if __name__ == '__main__':
